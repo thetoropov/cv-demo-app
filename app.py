@@ -4,7 +4,12 @@ import time
 app = Flask(__name__)
 
 
-@app.route("/fruit_detection", method=["POST"])
+@app.route('/')
+def index():
+    return 'OK!'
+
+
+@app.route("/fruit_detection", methods=['POST'])
 def response():
     query = dict(request.form)['query']
     result = query + " " + time.ctime()
@@ -12,4 +17,4 @@ def response():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",)
+    app.run()
