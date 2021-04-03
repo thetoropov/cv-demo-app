@@ -7,4 +7,4 @@ numpy==1.19.5
 Pillow==8.2.0
 torchvision==0.9.1
 opencv-python==4.5.1.48
-https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp37-cp37m-linux_x86_64.whl
+torch==1.8.1
