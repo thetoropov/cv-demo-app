@@ -9,10 +9,17 @@ def index():
     return 'OK!'
 
 
-@app.route("/fruit_detection", methods=['POST'])
+@app.route("/test", methods=['POST'])
 def response():
     query = dict(request.form)['query']
     result = query + " " + time.ctime()
+    return jsonify({"response": result})
+
+
+@app.route("/fruit_detection", methods=['POST'])
+def predict():
+    query = dict(request.form)['image']
+    result = 'OK'
     return jsonify({"response": result})
 
 
