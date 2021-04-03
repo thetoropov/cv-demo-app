@@ -11,7 +11,7 @@ from torchvision import models, transforms
 
 app = Flask(__name__)
 
-model = models.resnet101(pretrained=True)
+model = models.resnet18(pretrained=True)
 model.eval()
 
 
