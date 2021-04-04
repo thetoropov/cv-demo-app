@@ -11,9 +11,6 @@ from torchvision import models, transforms
 
 app = Flask(__name__)
 
-model = models.resnet18(pretrained=True)
-model.eval()
-
 
 @app.route('/')
 def index():
@@ -30,7 +27,6 @@ def response():
 @app.route("/fruit_detection", methods=['POST'])
 def predict():
     string = dict(request.form)['image']
-    #  result = 'OK'
     jpg_original = base64.b64decode(string)
     jpg_as_np = np.frombuffer(jpg_original, dtype=np.uint8)
     img = cv2.imdecode(jpg_as_np, flags=1)
@@ -45,6 +41,9 @@ def predict():
     ])
     input_tensor = preprocess(input_image)
     input_batch = input_tensor.unsqueeze(0)
+
+    model = models.resnet18(pretrained=True)
+    model.eval()
 
     with torch.no_grad():
         output = model(input_batch)
