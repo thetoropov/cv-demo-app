@@ -3,10 +3,10 @@ import time
 import base64
 
 import numpy as np
-# import cv2
+import cv2
 from PIL import Image
 import torch
-from torchvision import models, transforms
+# from torchvision import models, transforms
 
 
 app = Flask(__name__)
