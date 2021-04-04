@@ -6,7 +6,7 @@ import numpy as np
 import cv2
 from PIL import Image
 import torch
-# from torchvision import models, transforms
+from torchvision import models, transforms
 
 
 app = Flask(__name__)
@@ -23,7 +23,7 @@ def response():
     result = query + " " + time.ctime()
     return jsonify({"response": result})
 
-'''
+
 @app.route("/fruit_detection", methods=['POST'])
 def predict():
     string = dict(request.form)['image']
@@ -61,7 +61,7 @@ def predict():
         result_string += str(categories[top5_catid[i]]) + ' ' + str(top5_prob[i].item()) + '\n'
 
     return jsonify({"response": result_string})
-'''
+
 
 if __name__ == "__main__":
     app.run()
