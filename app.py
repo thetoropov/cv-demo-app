@@ -32,7 +32,7 @@ def image_test():
     with open(image, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read())
         file = encoded_string
-    return jsonify({"response": file})
+    return jsonify({"response": str(file)})
 
 
 @app.route("/fruit_detection", methods=['POST'])
