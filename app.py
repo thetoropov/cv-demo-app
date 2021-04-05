@@ -24,6 +24,17 @@ def response():
     return jsonify({"response": result})
 
 
+@app.route("/image_test", methods=['POST'])
+def image_test():
+    query = dict(request.form)['query']
+    encoded_string = ""
+    image = 'apple.jpeg'
+    with open(image, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+        file = encoded_string
+    return jsonify({"response": file})
+
+
 @app.route("/fruit_detection", methods=['POST'])
 def predict():
     string = dict(request.form)['image']
